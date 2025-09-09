@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="in">
 
 <head>
-  <title>Our Profile Company</title>
+  <title>IC Tech Profile Company</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <script src="js/jquery.js"></script>
   <script src="js/"></script>
+  <script src="js/myChart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Google Fonts -->
@@ -23,7 +24,7 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <a class="navbar-brand d-flex align-items-center" href="#">
       <img src="img/logoIC.png" width="70" height="70" class="d-inline-block align-top mr-2" alt="">
       <div class="navbar-brand-text">
@@ -95,21 +96,21 @@
           <div class="service-card">
             <i class="fas fa-cogs"></i>
             <h5>Custom Machine Parts</h5>
-            <p>Pembuatan komponen khusus sesuai kebutuhan mesin industri dan otomotif dengan tingkat presisi tinggi.</p>
+            <p>Manufacturing of custom components tailored to the needs of industrial and automotive machinery with a high level of precision.</p>
           </div>
         </div>
         <div class="col-md-4 mb-4">
           <div class="service-card">
             <i class="fas fa-drafting-compass"></i>
             <h5>Design & Prototyping</h5>
-            <p>Layanan desain 3D dan prototyping cepat untuk memastikan hasil sesuai dengan spesifikasi Anda.</p>
+            <p>3D design and rapid prototyping services to ensure results meet your specifications.</p>
           </div>
         </div>
         <div class="col-md-4 mb-4">
           <div class="service-card">
             <i class="fas fa-industry"></i>
             <h5>Precision Manufacturing</h5>
-            <p>Proses produksi menggunakan mesin berteknologi tinggi untuk menjaga kualitas dan keakuratan.</p>
+            <p>Production process using high-technology machines to maintain quality and accuracy.</p>
           </div>
         </div>
       </div>
@@ -121,46 +122,25 @@
     <div class="profile-container">
       <h2>About IC Tech</h2>
       <p>
-        IC Tech adalah perusahaan yang bergerak di bidang pembuatan <strong>custom part</strong>
-        untuk kebutuhan mesin industri maupun otomotif. Dengan dukungan teknologi presisi dan tenaga ahli berpengalaman,
-        kami menghadirkan solusi yang sesuai dengan kebutuhan spesifik setiap klien, mulai dari desain, produksi,
-        hingga quality control yang terjamin.
+        IC Tech is a company engaged in the manufacturing of <strong>custom parts</strong> for industrial and automotive machinery needs. 
+        Supported by precision technology and experienced experts, we provide solutions tailored 
+        to the specific requirements of each client, starting from design, production, to guaranteed quality control.
       </p>
       <p>
-        Kami percaya bahwa kualitas dan ketelitian adalah kunci utama dalam setiap komponen yang kami hasilkan.
-        Melalui inovasi berkelanjutan dan standar kerja tinggi, IC Tech berkomitmen untuk menjadi
-        <strong>“Your Precision Solution”</strong>, menghadirkan produk yang tidak hanya andal,
-        tetapi juga meningkatkan kinerja mesin Anda secara maksimal.
+        We believe that quality and accuracy are the key factors in every component we produce.
+        Through continuous innovation and high work standards, IC Tech is committed to being <strong>“Your Precision Solution”</strong>, 
+        delivering products that are not only reliable but also enhance the performance of your machines to the fullest.
       </p>
+
+      <div class="txt-Sangar">
+        <h3>Our Performance</h3>
+      </div>
 
       <div>
         <canvas id="myChart"></canvas>
       </div>
       
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       
-      <script>
-        const ctx = document.getElementById('myChart');
-      
-        new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: ['Otomotif', 'Dirgantara', 'Perkapalan', 'Bidang lain'],
-            datasets: [{
-              label: 'Data Customer',
-              data: [12, 19, 3, 5],
-              borderWidth: 1
-            }]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
-        });
-      </script>
     </div>
   </section>
   
@@ -169,28 +149,27 @@
     <div class="container">
       <h2>Contact Us</h2>
       <div class="row">
-        
-        <!-- Form -->
+
         <div class="col-md-6 mb-4">
           <div class="contact-box">
-            <form>
+            <form action="submit_contact.php" method="POST">
               <div class="form-group">
                 <label for="name">Your Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
               </div>
               <div class="form-group">
                 <label for="email">Your Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
               </div>
               <div class="form-group">
                 <label for="message">Your Message</label>
-                <textarea class="form-control" id="message" rows="5" placeholder="Write your message"></textarea>
+                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Write your message" required></textarea>
               </div>
               <button type="submit" class="btn btn-warning btn-block font-weight-bold">Send Message</button>
             </form>
           </div>
         </div>
-  
+        
         <!-- Info & Maps -->
 
           <div class="contact-box">
@@ -210,6 +189,34 @@
     <p>© 2025 IC Tech | All Rights Reserved</p>
     <p>Made with ♥ by <a href="#">IC Tech Team</a></p>
   </footer>
+
+<script>
+  fetch('data.php')
+    .then(response => response.json())
+    .then(result => {
+      const ctx = document.getElementById('myChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: result.labels,
+          datasets: [{
+            label: 'Data Customer',
+            data: result.data,
+            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    })
+    .catch(error => console.error('Error loading chart data:', error));
+</script>
 
 </body>
 </html>
