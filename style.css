@@ -87,3 +87,6 @@
     color: #FFD700;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }

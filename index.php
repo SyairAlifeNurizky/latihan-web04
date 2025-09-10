@@ -21,6 +21,10 @@
 
 </head>
 
+
+<body data-spy="scroll" data-target="#navbarNavAltMarkup" data-offset="70">
+
+
 <body>
 
   <!-- Navbar -->
@@ -47,45 +51,52 @@
     </div>
   </nav>
 
-  <!-- Carousel -->
-  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="img/dmg.mori.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>High Precision Technology Machine</h5>
-          <p>There is'nt Tolerance for the Perfection</p>
+
+   <!-- Carousel -->
+  <div id="home">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/dmg.mori.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>High Precision Technology Machine</h5>
+            <p>There is'nt Tolerance for the Perfection</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/Measure.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Certificated Measuring Tools</h5>
+            <p>Presicion make Perfection</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/lab_qc_resized_1080x600.png" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>High Quality Control</h5>
+            <p>Only the Perfect will reach you</p>
+          </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <img src="img/Measure.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Certificated Measuring Tools</h5>
-          <p>Presicion make Perfection</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="img/lab_qc_resized_1080x600.png" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>High Quality Control</h5>
-          <p>Only the Perfect will reach you</p>
-        </div>
-      </div>
+      <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </button>
   </div>
+
+
+ 
+  
 
   <!-- Services Section -->
   <section id="services" class="services-section">
